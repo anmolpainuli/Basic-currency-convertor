@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+
+		
+		System.out.print("Enter the amount: ");
+		double amount = scanner.nextDouble();
+
+		
+		System.out.print("Enter the currency to convert from (USD, EUR, INR): ");
+		String fromCurrency = scanner.next().toUpperCase();
+
+		System.out.print("Enter the currency to convert to (USD, EUR, INR): ");
+		String toCurrency = scanner.next().toUpperCase();
+
+
+		double conversionRate = 0;
+
+		
+		if (fromCurrency.equals("USD") && toCurrency.equals("EUR")) {
+			conversionRate = 0.86; 
+		} 
+		else if (fromCurrency.equals("USD") && toCurrency.equals("INR")) {
+			conversionRate = 88.75; 
+		} 
+		else if (fromCurrency.equals("EUR") && toCurrency.equals("USD")) {
+			conversionRate = 1.16; 
+		} 
+		else if (fromCurrency.equals("EUR") && toCurrency.equals("INR")) {
+			conversionRate = 102.37; 
+		} 
+		else if (fromCurrency.equals("INR") && toCurrency.equals("USD")) {
+			conversionRate = 0.011; 
+		} 
+		else if (fromCurrency.equals("INR") && toCurrency.equals("EUR")) {
+			conversionRate = 0.0098; 
+		} 
+		else {
+			
+			System.out.println("Invalid currency combination.");
+			return;
+		}
+
+	
+		double convertedAmount = amount * conversionRate;
+
+		
+		System.out.println("Converted amount: " + convertedAmount + " " + toCurrency);
+	}
+}
